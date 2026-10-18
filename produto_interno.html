@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="css/theme-vendors.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/social-float.css" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JMHB2JMEFD"></script>
@@ -121,9 +122,7 @@
                             <li class="nav-item dropdown simple-dropdown">
                                 <a href="quem_somos.html" class="nav-link">Quem Somos</a>
                             <li class="nav-item dropdown simple-dropdown">
-                                <a href="servicos.html" class="nav-link">Serviços</a>
-                            <li class="nav-item dropdown simple-dropdown">
-                                <a href="portifolio.html" class="nav-link">Portifólio</a>
+                                <a href="portifolio.html" class="nav-link">Serviços e Portfólio</a>
                             <li class="nav-item dropdown simple-dropdown">
                                 <a href="contato.html" class="nav-link">Contato</a>
                             </li>
@@ -168,7 +167,7 @@
                             <span id="produto-personalizavel"></span>
                         </blockquote>
                         <p id="produto-descricao" class="w-90 md-w-100"></p>
-                        <a style="border-radius: 12px;" href="https://api.whatsapp.com/send?phone=5511942241045&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro." target="_blank" class="btn btn-medium btn-fancy btn-round-edge-small btn-golden-brown margin-10px-top">Entre em contato agora mesmo!</a>
+                        <a style="border-radius: 12px;" href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro." target="_blank" class="btn btn-medium btn-fancy btn-round-edge-small btn-golden-brown margin-10px-top">Entre em contato agora mesmo!</a>
                     </div>
                 </div>
             </div>
@@ -192,8 +191,7 @@
                         <div class="feature-box-content">
                             <div><a href="index.html" class="text-white">Home</a></div>
                             <div><a href="quem_somos.html" class="text-white">Quem Somos</a></div>
-                            <div><a href="servicos.html" class="text-white">Serviços</a></div>
-                            <div><a href="portifolio.html" class="text-white">Portifólio</a></div>
+                            <div><a href="portifolio.html" class="text-white">Serviços e Portfólio</a></div>
                             <div><a href="contato.html" class="text-white">Contato</a></div>
                         </div>
                     </div>
@@ -207,8 +205,8 @@
                         </div>
                         <div class="feature-box-content">
                             <span class="text-uppercase text-medium font-weight-500 alt-font margin-5px-bottom d-block">Contato:</strong></span>
-                            <p><a class="text-white" href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro.">(19) 9 9707-7225</a><br>
-                                <a class="text-white" href="https://api.whatsapp.com/send?phone=5519997052042&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro.">(19) 9 9705-2042</a><br>
+                            <p><a class="text-white" href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu orçamento.">(19) 9 9707-7225</a><br>
+                                <a class="text-white" href="https://api.whatsapp.com/send?phone=5519997052042&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu orçamento.">(19) 9 9705-2042</a><br>
                                 <a class="text-white" href="contato@estruturalaco.com.br">contato@estruturalaco.com.br</a></p>
                         </div>
                     </div>
@@ -227,105 +225,21 @@
                 </div>
 
                 <div class="col-12 col-md-6 order-1 order-md-0 sm-margin-15px-bottom d-flex justify-content-end">
-                    <div class="mobalinhamento col-12 col-lg-6 text-center mobtextcenter mt-3 mt-lg-0">Desenvolvido por <a href="https://www.aplicari.com/" target="_blank" class="footer-logo"><img style='height: 25px' src="img/logo-aplicari.png" alt=""></a></div>
+                    <div class="mobalinhamento col-12 col-lg-6 text-center mobtextcenter mt-3 mt-lg-0">Desenvolvido por <a href="https://jwlmedia12-hub.github.io/jwl-site/" target="_blank" class="footer-logo"><img style='height: 25px' src="img/logo-jwl.PNG" alt=""></a></div>
                 </div>
             </div>
         </div>
     </footer>
     <!-- end footer -->
 
-    <!-- Whatsapp ripple ============================================================================================================== -->
-    <style>
-        .whatsapp {
-            position: fixed;
-            z-index: 9999;
-            left: 35px;
-            bottom: 45px;
-            width: 40px;
-            height: 30px;
-        }
-
-        .whatsapp a {
-            background: #00E676;
-            border-radius: 50%;
-            box-shadow: 0 5px 10px 0 rgba(35, 50, 56, .1);
-            position: relative;
-            height: 50px;
-            width: 50px;
-            text-align: center;
-            line-height: 48px;
-            font-size: 20px;
-            color: #fff;
-            z-index: 1;
-            display: block;
-        }
-
-        .whatsapp .ripple,
-        .whatsapp .ripple:before,
-        .whatsapp .ripple:after {
-            -webkit-animation: ripple 3s infinite;
-            animation: ripple 3s infinite;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(16, 231, 126, 0.3);
-            top: 0;
-            height: 50px;
-            position: absolute;
-            width: 50px;
-        }
-
-        .whatsapp .ripple:before {
-            -webkit-animation-delay: .9s;
-            animation-delay: .9s;
-            content: "";
-            position: absolute;
-            top: 0
-        }
-
-        .whatsapp .ripple:after {
-            -webkit-animation-delay: .6s;
-            animation-delay: .6s;
-            content: "";
-            position: absolute;
-            top: 0
-        }
-
-        @-webkit-keyframes ripple {
-            70% {
-                box-shadow: 0 0 0 20px transparent
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 transparent
-            }
-        }
-
-        @keyframes ripple {
-            70% {
-                box-shadow: 0 0 0 20px transparent
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 transparent
-            }
-        }
-
-        @media (max-width:990px) {
-            .whatsapp {
-                position: fixed;
-                z-index: 99;
-                right: 20px;
-                bottom: 40px;
-                width: 38px;
-                height: 38px;
-            }
-        }
-    </style>
-
-    <div class="whatsapp">
-        <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro." target="_blank">
-            <img style='width: 27px; margin-left: 2px; margin-top: 2px;' src="img/whatsapp.png" alt="">
+    <!-- Botões flutuantes: WhatsApp e Instagram ===================================================================================== -->
+    <div class="social-float">
+        <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site%20e%20gostaria%20de%20realizar%20meu%20orçamento." target="_blank" rel="noopener" class="sf-whatsapp" aria-label="Fale conosco pelo WhatsApp">
+            <i class="fab fa-whatsapp"></i><span>Fale pelo WhatsApp</span>
         </a>
-        <div class="ripple"></div>
+        <a href="https://www.instagram.com/estruturalconstrucoesmetalicas/" target="_blank" rel="noopener" class="sf-instagram" aria-label="Siga-nos no Instagram">
+            <i class="fab fa-instagram"></i><span>Siga no Instagram</span>
+        </a>
     </div>
 
     <!-- javascript -->

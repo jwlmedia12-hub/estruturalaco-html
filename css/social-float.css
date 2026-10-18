@@ -1,0 +1,113 @@
+/* Botões flutuantes de WhatsApp e Instagram (usado em todas as páginas) */
+.social-float {
+    position: fixed;
+    z-index: 9999;
+    left: 30px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.social-float a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 26px;
+    box-shadow: 0 5px 12px 0 rgba(35, 50, 56, .25);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.social-float a:hover,
+.social-float a:focus {
+    color: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 8px 18px 0 rgba(35, 50, 56, .35);
+}
+
+.social-float .sf-whatsapp {
+    background: #25D366;
+}
+
+.social-float .sf-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* efeito ripple no WhatsApp */
+.social-float .sf-whatsapp::before,
+.social-float .sf-whatsapp::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, .35);
+    animation: sf-ripple 3s infinite;
+    z-index: -1;
+}
+
+.social-float .sf-whatsapp::after {
+    animation-delay: .9s;
+}
+
+@keyframes sf-ripple {
+    70% {
+        box-shadow: 0 0 0 20px transparent;
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+/* tooltip */
+.social-float a span {
+    position: absolute;
+    left: 64px;
+    white-space: nowrap;
+    background: #232323;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-6px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.social-float a:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 991px) {
+    .social-float {
+        left: auto;
+        right: 20px;
+        bottom: 30px;
+        gap: 12px;
+    }
+
+    .social-float a {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .social-float a span {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .social-float .sf-whatsapp::before,
+    .social-float .sf-whatsapp::after {
+        animation: none;
+    }
+}

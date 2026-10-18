@@ -2,7 +2,7 @@
 <html class="no-js" lang="pt-BR">
 
 <head>
-    <title>Estrutural Aço</title>
+    <title>Serviços e Portfólio | Estrutural Aço</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Aplicari">
@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="css/theme-vendors.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/social-float.css" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JMHB2JMEFD"></script>
@@ -98,9 +99,7 @@
                             <li class="nav-item dropdown simple-dropdown">
                                 <a href="quem_somos.html" class="nav-link">Quem Somos</a>
                             <li class="nav-item dropdown simple-dropdown">
-                                <a href="servicos.html" class="nav-link">Serviços</a>
-                            <li class="nav-item dropdown simple-dropdown">
-                                <a href="portifolio.html" class="nav-link">Portifólio</a>
+                                <a href="portifolio.html" class="nav-link">Serviços e Portfólio</a>
                             <li class="nav-item dropdown simple-dropdown">
                                 <a href="contato.html" class="nav-link">Contato</a>
                             </li>
@@ -125,340 +124,649 @@
             <div class="row justify-content-center align-items-center small-screen">
                 <div class="col-12 col-md-10 position-relative page-title-large text-center">
                     <span class="text-white opacity-6 alt-font margin-5px-bottom d-block xs-line-height-20px"></span>
-                    <h1 class="text-white alt-font font-weight-500 letter-spacing-minus-1 margin-10px-bottom">Portfólio</h1>
+                    <h1 class="text-white alt-font font-weight-500 letter-spacing-minus-1 margin-10px-bottom">Serviços e Portfólio</h1>
                 </div>
             </div>
         </div>
     </section>
     <!-- end page title -->
 
-    <!-- start section -->
-    <section class="pb-5">
+    <!-- start section: serviços e portfólio por tipo de serviço (single page) -->
+    <style>
+        .portfolio-filter { position: sticky; top: 0; z-index: 20; background: #fff; padding: 20px 0; margin-bottom: 30px; border-bottom: 1px solid #ededed; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .portfolio-filter-btn { border: 1px solid #dcdcdc; background: #fff; color: #232323; font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; line-height: 1; padding: 12px 20px; border-radius: 30px; cursor: pointer; transition: all .25s ease; }
+        .portfolio-filter-btn span { display: inline-block; margin-left: 6px; padding: 3px 8px; border-radius: 20px; background: #f1f1f1; font-size: 12px; color: #828282; transition: all .25s ease; }
+        .portfolio-filter-btn:hover { border-color: rgb(62,64,149); color: rgb(62,64,149); }
+        .portfolio-filter-btn.active { background: rgb(62,64,149); border-color: rgb(62,64,149); color: #fff; }
+        .portfolio-filter-btn.active span { background: rgba(255,255,255,.2); color: #fff; }
+        .portfolio-category { margin-bottom: 70px; }
+        .portfolio-category:last-child { margin-bottom: 0; }
+        .portfolio-category-header { display: flex; align-items: center; gap: 18px; margin-bottom: 25px; }
+        .portfolio-category-header > div { flex: 1; }
+        .portfolio-category-header > i { font-size: 38px; color: rgb(62,64,149); line-height: 1; }
+        .portfolio-category-header h2 { font-size: 26px; line-height: 1.3; font-weight: 500; color: #232323; margin: 0 0 5px; letter-spacing: -.5px; }
+        .portfolio-category-header p, .portfolio-subheader p { margin: 0; }
+        .portfolio-cta { flex: 0 0 auto; background: #25D366; color: #fff; font-family: Poppins, sans-serif; font-size: 14px; font-weight: 500; line-height: 1; padding: 13px 20px; border-radius: 30px; }
+        .portfolio-cta:hover, .portfolio-cta:focus { background: #1ebe5a; color: #fff; }
+        .portfolio-subheader { margin: 40px 0 18px; padding-left: 14px; border-left: 3px solid rgb(62,64,149); }
+        .portfolio-subheader h3 { font-size: 19px; line-height: 1.3; font-weight: 500; color: #232323; margin: 0 0 3px; }
+        .portfolio-category.is-entering { animation: portfolio-in .45s ease both; }
+        @keyframes portfolio-in { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+        @media (max-width: 767px) {
+            .portfolio-filter { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding: 15px; margin-left: -15px; margin-right: -15px; }
+            .portfolio-filter-btn { flex: 0 0 auto; }
+            .portfolio-category-header { flex-wrap: wrap; }
+            .portfolio-category-header h2 { font-size: 22px; }
+            .portfolio-cta { width: 100%; text-align: center; }
+        }
+        @media (prefers-reduced-motion: reduce) { .portfolio-category.is-entering { animation: none; } }
+    </style>
+    <section class="pb-5 pt-0">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/1.jpg" title="1" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/1.jpg" alt="1" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+            <nav class="portfolio-filter" role="tablist" aria-label="Tipos de serviço">
+                <button type="button" role="tab" class="portfolio-filter-btn active" data-filter="todos" aria-selected="true">Todos <span>42</span></button>
+                <button type="button" role="tab" class="portfolio-filter-btn" data-filter="escadas" aria-selected="false">Escadas <span>4</span></button>
+                <button type="button" role="tab" class="portfolio-filter-btn" data-filter="mezaninos" aria-selected="false">Mezaninos <span>3</span></button>
+                <button type="button" role="tab" class="portfolio-filter-btn" data-filter="coberturas" aria-selected="false">Coberturas <span>30</span></button>
+                <button type="button" role="tab" class="portfolio-filter-btn" data-filter="galpoes" aria-selected="false">Galpões <span>3</span></button>
+                <button type="button" role="tab" class="portfolio-filter-btn" data-filter="personalizado" aria-selected="false">Personalizado <span>2</span></button>
+            </nav>
+
+            <!-- serviço: Escadas Metálicas -->
+            <div class="portfolio-category" id="servico-escadas" data-category="escadas" role="tabpanel">
+                <div class="portfolio-category-header">
+                    <i class="line-icon-Upward"></i>
+                    <div>
+                        <h2 class="alt-font">Escadas Metálicas</h2>
+                        <p>Soluções robustas e elegantes para seu projeto.</p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20Escadas%20Met%C3%A1licas." target="_blank" rel="noopener" class="portfolio-cta"><i class="fab fa-whatsapp"></i> Solicitar orçamento</a>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/10.jpg" title="10" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/10.jpg" alt="10" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/escada.jpg" title="Escadas Metálicas" data-group="portfolio-escadas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/escada.jpg" alt="Escadas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/escada1.jpg" title="Escadas Metálicas" data-group="portfolio-escadas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/escada1.jpg" alt="Escadas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/escada1.jpg" title="Escadas Metálicas" data-group="portfolio-escadas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/escada1.jpg" alt="Escadas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/escada2.jpg" title="Escadas Metálicas" data-group="portfolio-escadas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/escada2.jpg" alt="Escadas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/11.jpg" title="11" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/11.jpg" alt="11" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="eager" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+            </div>
+
+            <!-- serviço: Mezaninos Metálicos -->
+            <div class="portfolio-category" id="servico-mezaninos" data-category="mezaninos" role="tabpanel">
+                <div class="portfolio-category-header">
+                    <i class="line-icon-Building"></i>
+                    <div>
+                        <h2 class="alt-font">Mezaninos Metálicos</h2>
+                        <p>Aproveitamento máximo do espaço com segurança e eficiência.</p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20Mezaninos%20Met%C3%A1licos." target="_blank" rel="noopener" class="portfolio-cta"><i class="fab fa-whatsapp"></i> Solicitar orçamento</a>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/12.jpg" title="12" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/12.jpg" alt="12" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/mezanino.jpg" title="Mezaninos Metálicos" data-group="portfolio-mezaninos" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/mezanino.jpg" alt="Mezaninos Metálicos - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/mezanino1.jpg" title="Mezaninos Metálicos" data-group="portfolio-mezaninos" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/mezanino1.jpg" alt="Mezaninos Metálicos - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/mezanino2.jpg" title="Mezaninos Metálicos" data-group="portfolio-mezaninos" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/mezanino2.jpg" alt="Mezaninos Metálicos - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/13.jpg" title="13" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/13.jpg" alt="13" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+            </div>
+
+            <!-- serviço: Coberturas Metálicas -->
+            <div class="portfolio-category" id="servico-coberturas" data-category="coberturas" role="tabpanel">
+                <div class="portfolio-category-header">
+                    <i class="line-icon-Home"></i>
+                    <div>
+                        <h2 class="alt-font">Coberturas Metálicas</h2>
+                        <p>Proteção e durabilidade para sua construção.</p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20Coberturas%20Met%C3%A1licas." target="_blank" rel="noopener" class="portfolio-cta"><i class="fab fa-whatsapp"></i> Solicitar orçamento</a>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/14.jpg" title="14" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/14.jpg" alt="14" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/cobertura.jpg" title="Coberturas Metálicas" data-group="portfolio-coberturas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/cobertura.jpg" alt="Coberturas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/cobertura1.jpg" title="Coberturas Metálicas" data-group="portfolio-coberturas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/cobertura1.jpg" alt="Coberturas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/cobertura2.jpg" title="Coberturas Metálicas" data-group="portfolio-coberturas" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/cobertura2.jpg" alt="Coberturas Metálicas - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/15.jpg" title="15" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/15.jpg" alt="15" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="portfolio-subheader">
+                    <h3 class="alt-font">Ginásios e Quadras</h3>
+                    <p>Coberturas em arco com treliças de grande vão.</p>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/16.jpg" title="16" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/16.jpg" alt="16" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/galeria/3.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/3.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/4.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/4.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/5.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/5.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/6.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/6.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/16.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/16.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/17.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/17.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/18.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/18.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/19.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/19.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/20.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/20.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/21.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/21.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/22.jpg" title="Ginásios e Quadras" data-group="portfolio-coberturas-ginasios" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/22.jpg" alt="Ginásios e Quadras - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/17.jpg" title="17" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/17.jpg" alt="17" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="portfolio-subheader">
+                    <h3 class="alt-font">Piscina e Área de Lazer</h3>
+                    <p>Estruturas treliçadas.</p>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/18.jpg" title="18" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/18.jpg" alt="18" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/galeria/7.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/7.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/8.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/8.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/9.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/9.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/10.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/10.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/11.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/11.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/12.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/12.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/13.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/13.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/14.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/14.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/15.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/15.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/27.jpg" title="Piscina e Área de Lazer" data-group="portfolio-coberturas-piscina" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/27.jpg" alt="Piscina e Área de Lazer - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/19.jpg" title="19" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/19.jpg" alt="19" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="portfolio-subheader">
+                    <h3 class="alt-font">Telhados</h3>
+                    <p>Estruturas para telhados com múltiplas águas e acabamentos.</p>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/2.jpg" title="2" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/2.jpg" alt="2" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/galeria/23.jpg" title="Telhados" data-group="portfolio-coberturas-telhados" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/23.jpg" alt="Telhados - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/24.jpg" title="Telhados" data-group="portfolio-coberturas-telhados" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/24.jpg" alt="Telhados - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/25.jpg" title="Telhados" data-group="portfolio-coberturas-telhados" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/25.jpg" alt="Telhados - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/26.jpg" title="Telhados" data-group="portfolio-coberturas-telhados" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/26.jpg" alt="Telhados - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/20.jpg" title="20" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/20.jpg" alt="20" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                <div class="portfolio-subheader">
+                    <h3 class="alt-font">Marquises e Forros</h3>
+                    <p>Forros metálicos com iluminação integrada.</p>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/21.jpg" title="21" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/21.jpg" alt="21" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/galeria/1.jpg" title="Marquises e Forros" data-group="portfolio-coberturas-forros" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/1.jpg" alt="Marquises e Forros - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/galeria/2.jpg" title="Marquises e Forros" data-group="portfolio-coberturas-forros" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galeria/2.jpg" alt="Marquises e Forros - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/22.jpg" title="22" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/22.jpg" alt="22" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+            </div>
+
+            <!-- serviço: Galpões Metálicos -->
+            <div class="portfolio-category" id="servico-galpoes" data-category="galpoes" role="tabpanel">
+                <div class="portfolio-category-header">
+                    <i class="line-icon-Factory"></i>
+                    <div>
+                        <h2 class="alt-font">Galpões Metálicos</h2>
+                        <p>Estruturas para todos os fins, com qualidade e eficiência.</p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20Galp%C3%B5es%20Met%C3%A1licos." target="_blank" rel="noopener" class="portfolio-cta"><i class="fab fa-whatsapp"></i> Solicitar orçamento</a>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/23.jpg" title="23" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/23.jpg" alt="23" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/galpao.jpg" title="Galpões Metálicos" data-group="portfolio-galpoes" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/galpao.jpg" alt="Galpões Metálicos - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/galpao1.jpg" title="Galpões Metálicos" data-group="portfolio-galpoes" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/galpao1.jpg" alt="Galpões Metálicos - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/galpao2.jpg" title="Galpões Metálicos" data-group="portfolio-galpoes" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/galpao2.jpg" alt="Galpões Metálicos - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/24.jpg" title="24" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/24.jpg" alt="24" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+            </div>
+
+            <!-- serviço: Projetos Personalizados -->
+            <div class="portfolio-category" id="servico-personalizado" data-category="personalizado" role="tabpanel">
+                <div class="portfolio-category-header">
+                    <i class="line-icon-Gear"></i>
+                    <div>
+                        <h2 class="alt-font">Projetos Personalizados</h2>
+                        <p>Estruturas sob medida, desenvolvidas para a necessidade de cada cliente.</p>
+                    </div>
+                    <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20Projetos%20Personalizados." target="_blank" rel="noopener" class="portfolio-cta"><i class="fab fa-whatsapp"></i> Solicitar orçamento</a>
                 </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/25.jpg" title="25" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/25.jpg" alt="25" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                    <div class="col">
+                        <a href="img/personalizado.jpg" title="Projetos Personalizados" data-group="portfolio-personalizado" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/personalizado.jpg" alt="Projetos Personalizados - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/26.jpg" title="26" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/26.jpg" alt="26" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="img/servicos/personalizado.jpg" title="Projetos Personalizados" data-group="portfolio-personalizado" class="lightbox-group-gallery-item">
+                            <div class="portfolio-box h-100">
+                                <div class="portfolio-image">
+                                    <img src="img/servicos/personalizado.jpg" alt="Projetos Personalizados - Estrutural Aço" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
+                                    <div class="portfolio-hover justify-content-center align-items-center d-flex">
+                                        <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/27.jpg" title="27" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/27.jpg" alt="27" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/3.jpg" title="3" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/3.jpg" alt="3" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/4.jpg" title="4" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/4.jpg" alt="4" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/5.jpg" title="5" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/5.jpg" alt="5" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/6.jpg" title="6" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/6.jpg" alt="6" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/7.jpg" title="7" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/7.jpg" alt="7" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/8.jpg" title="8" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/8.jpg" alt="8" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col wow animate__fadeIn">
-                    <a href="img/galeria/9.jpg" title="9" data-group="lightbox-gallery-3" class="lightbox-group-gallery-item">
-                        <div class="portfolio-box h-100">
-                            <div class="portfolio-image">
-                                <img src="img/galeria/9.jpg" alt="9" class="w-100 h-100" style="object-fit: cover; aspect-ratio: 1/1;" loading="lazy" decoding="async" />
-                                <div class="portfolio-hover justify-content-center align-items-center d-flex">
-                                    <i class="feather icon-feather-zoom-in text-white icon-extra-large"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -481,8 +789,7 @@
                         <div class="feature-box-content">
                             <div><a href="index.html" class="text-white">Home</a></div>
                             <div><a href="quem_somos.html" class="text-white">Quem Somos</a></div>
-                            <div><a href="servicos.html" class="text-white">Serviços</a></div>
-                            <div><a href="portifolio.html" class="text-white">Portifólio</a></div>
+                            <div><a href="portifolio.html" class="text-white">Serviços e Portfólio</a></div>
                             <div><a href="contato.html" class="text-white">Contato</a></div>
                         </div>
                     </div>
@@ -496,8 +803,8 @@
                         </div>
                         <div class="feature-box-content">
                             <span class="text-uppercase text-medium font-weight-500 alt-font margin-5px-bottom d-block">Contato:</strong></span>
-                            <p><a class="text-white" href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro.">(19) 9 9707-7225</a><br>
-                                <a class="text-white" href="https://api.whatsapp.com/send?phone=5519997052042&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro.">(19) 9 9705-2042</a><br>
+                            <p><a class="text-white" href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu orçamento.">(19) 9 9707-7225</a><br>
+                                <a class="text-white" href="https://api.whatsapp.com/send?phone=5519997052042&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu orçamento.">(19) 9 9705-2042</a><br>
                                 <a class="text-white" href="contato@estruturalaco.com.br">contato@estruturalaco.com.br</a></p>
                         </div>
                     </div>
@@ -516,111 +823,28 @@
                 </div>
 
                 <div class="col-12 col-md-6 order-1 order-md-0 sm-margin-15px-bottom d-flex justify-content-end">
-                    <div class="mobalinhamento col-12 col-lg-6 text-center mobtextcenter mt-3 mt-lg-0">Desenvolvido por <a href="https://www.aplicari.com/" target="_blank" class="footer-logo"><img style='height: 25px' src="img/logo-aplicari.png" alt=""></a></div>
+                    <div class="mobalinhamento col-12 col-lg-6 text-center mobtextcenter mt-3 mt-lg-0">Desenvolvido por <a href="https://jwlmedia12-hub.github.io/jwl-site/" target="_blank" class="footer-logo"><img style='height: 25px' src="img/logo-jwl.PNG" alt=""></a></div>
                 </div>
             </div>
         </div>
     </footer>
     <!-- end footer -->
 
-    <!-- Whatsapp ripple ============================================================================================================== -->
-    <style>
-        .whatsapp {
-            position: fixed;
-            z-index: 9999;
-            left: 35px;
-            bottom: 45px;
-            width: 40px;
-            height: 30px;
-        }
-
-        .whatsapp a {
-            background: #00E676;
-            border-radius: 50%;
-            box-shadow: 0 5px 10px 0 rgba(35, 50, 56, .1);
-            position: relative;
-            height: 50px;
-            width: 50px;
-            text-align: center;
-            line-height: 48px;
-            font-size: 20px;
-            color: #fff;
-            z-index: 1;
-            display: block;
-        }
-
-        .whatsapp .ripple,
-        .whatsapp .ripple:before,
-        .whatsapp .ripple:after {
-            -webkit-animation: ripple 3s infinite;
-            animation: ripple 3s infinite;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(16, 231, 126, 0.3);
-            top: 0;
-            height: 50px;
-            position: absolute;
-            width: 50px;
-        }
-
-        .whatsapp .ripple:before {
-            -webkit-animation-delay: .9s;
-            animation-delay: .9s;
-            content: "";
-            position: absolute;
-            top: 0
-        }
-
-        .whatsapp .ripple:after {
-            -webkit-animation-delay: .6s;
-            animation-delay: .6s;
-            content: "";
-            position: absolute;
-            top: 0
-        }
-
-        @-webkit-keyframes ripple {
-            70% {
-                box-shadow: 0 0 0 20px transparent
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 transparent
-            }
-        }
-
-        @keyframes ripple {
-            70% {
-                box-shadow: 0 0 0 20px transparent
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 transparent
-            }
-        }
-
-        @media (max-width:990px) {
-            .whatsapp {
-                position: fixed;
-                z-index: 99;
-                right: 20px;
-                bottom: 40px;
-                width: 38px;
-                height: 38px;
-            }
-        }
-    </style>
-
-    <div class="whatsapp">
-        <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site e gostaria de realizar meu cadastro." target="_blank">
-            <img style='width: 27px; margin-left: 2px; margin-top: 2px;' src="img/whatsapp.png" alt="">
+    <!-- Botões flutuantes: WhatsApp e Instagram ===================================================================================== -->
+    <div class="social-float">
+        <a href="https://api.whatsapp.com/send?phone=5519997077225&text=Ol%C3%A1!%20Estou%20entrando%20em%20contato%20pelo%20site%20e%20gostaria%20de%20realizar%20meu%20orçamento." target="_blank" rel="noopener" class="sf-whatsapp" aria-label="Fale conosco pelo WhatsApp">
+            <i class="fab fa-whatsapp"></i><span>Fale pelo WhatsApp</span>
         </a>
-        <div class="ripple"></div>
+        <a href="https://www.instagram.com/estruturalconstrucoesmetalicas/" target="_blank" rel="noopener" class="sf-instagram" aria-label="Siga-nos no Instagram">
+            <i class="fab fa-instagram"></i><span>Siga no Instagram</span>
+        </a>
     </div>
 
     <!-- javascript -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/theme-vendors.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/portfolio-spa.js"></script>
     <script>
         document.getElementById('copy-year').textContent = new Date().getFullYear();
     </script>
