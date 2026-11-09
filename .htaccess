@@ -14,9 +14,6 @@
 
     RewriteRule ^home/?$ index.html [NC,L]
 
-    RewriteRule ^produto_interno/?$ produto_interno.html [NC,L]
-    RewriteRule ^produto_interno/([0-9-]+)/?$ produto_interno.html?id=$1 [NC,L]
-
 </IfModule>
 
 <IfModule mod_deflate.c>
